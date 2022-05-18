@@ -152,7 +152,6 @@ const notaFiscal = {
 	valor_do_ingresso_in: [[320,80,50,20], //in sf [0][0]
 						[60,40,30,70], //in	dt [1][0]
 						[198,132,88,33]], //in fi [2][0]					
-	valor_total: function (custo, quantidade){custo * quantidade}
 };
 const clienteCadastro = {
 	nomeCompleto(){
@@ -212,8 +211,6 @@ const qa5 = clienteCadastro.quantidadeDeIngressos();
 const indice = qa3[0];
 const arrays = qa2[1][indice];
 const numero2 = qa4[1];
-
- 
 console.log(`
 			---Dados da compra--- 
 		Nome do cliente:  ${qa1} 
@@ -224,4 +221,4 @@ console.log(`
 			---Valores--- 
 		Valor do ingresso:  ${qa2[0]} ${arrays[numero2]}
 		Valor total:  ${qa2[0]} ${arrays[numero2] * qa5}
-		`);
+`);
