@@ -62,7 +62,7 @@ console.log(mensagem)*/
 //SIM, NAO FOI DECLARADO UM PADRAO PARA NUMEROS NAO ACEITOS PELA CONDICAO PRINCIPAL
 
 //=====Exercícios de escrita de código=====
-
+/*
 //-----questao 1-----
 //a) Faça um prompt para receber a idade do usuário e guarde em uma variável.
 const idade = Number(prompt("Digite a sua idade em numero."));
@@ -70,7 +70,8 @@ const idade = Number(prompt("Digite a sua idade em numero."));
 console.log(idade,typeof(idade),typeof(idade)==="number");
 //c) Agora veja se essa idade do usuário corresponde à idade mínima que permite dirigir. Se sim, imprima no console "Você pode dirigir", caso contrário, imprima "Você não pode dirigir."
 if(idade >= 18){console.log("Você pode dirigir");}else{console.log("Você não pode dirigir");};
-
+*/
+/*
 //-----questao 2-----
 //Agora faça um programa que verifica que turno do dia um aluno estuda. Peça para digitar M (matutino) ou V (Vespertino) ou N (Noturno).
 const turno = prompt("Voce estuda em qual desses turnos: digitar M (matutino) ou V (Vespertino) ou N (Noturno)");
@@ -84,7 +85,8 @@ if((turno.toUpperCase()) === "M"){
 }else{
 	console.log("nao entendi seu turno");
 };
-
+*/
+/*
 //-----questao 3-----
 //Repita o exercício anterior, mas utilizando a estrutura de switch case agora.
 //Agora faça um programa que verifica que turno do dia um aluno estuda. Peça para digitar M (matutino) ou V (Vespertino) ou N (Noturno).
@@ -104,7 +106,8 @@ switch(turno1.toUpperCase()){
 		console.log("Nao entendi!");
 		break
 };
-
+*/
+/*
 //-----questao 4-----
 //Considere a situação: você vai ao cinema com um amigo ou amiga, porém ele/ela só assistirá a um filme com você 
 //se ele for do gênero fantasia e se o ingresso está abaixo de 15 reais. 
@@ -120,9 +123,9 @@ if(perguntaAoClienteGeneroDeFilme === companhiaClienteAoCinema[0] && perguntaAoC
 }else{
 	console.log("Escolha outro filme :(");
 }; 
-
+*/
 //=====DESAFIOS=====
-
+/*
 //-----questao 1-----
 //pergunte ao usuário, pelo prompt qual lanchinho ele vai comprar (pipoca, chocolate, doces, etc) e imprima no console as mensagens "Bom filme!" e "Aproveite o seu [LANCHINHO]"
 let perguntaAoClienteGeneroDeFilme1 = prompt("Qual o genero que deseja assistir?"); 
@@ -137,64 +140,88 @@ if(perguntaAoClienteGeneroDeFilme1.toLowerCase() === companhiaClienteAoCinema1[0
 }else{
 	console.log("Escolha outro filme :(");
 }; 
-
+*/
 //-----questao 2-----
 //criar um sistema de vendas de ingressos de jogos de um estádio de futebol
-//variaveis a serem preenchidas
-const clienteCadastro = {nome_completo:"",tipo_de_jogo:"", etapa_do_jogo:"", categoria:0, quantidade_de_ingressos:0};
-const ingressoDomestico = {etapa_jogo: [[1320,880,550,220],[660,440,330,170],[1980,1320,880,330]]}; //SF 1 = 1320 || [0][0];
-const ingressoInternacional = {...ingressoDomestico};
-//i1 - usuario respondendo acerca da variavel
-const pergunta1 = prompt("Digite seu nome completo").toUpperCase();
-const pergunta2 = prompt("Digite IN para internacional ou DO para domestico").toUpperCase();
-const pergunta3 = prompt("Digite SF indica semi-final; DT indica decisão de terceiro lugar; e FI indica final").toUpperCase();
-const pergunta4 = Number(prompt("Digite um numero sendo um 1 ou 2 ou 3 ou 4"));
-const pergunta5 = Number(prompt("Digite um numero de quantidade de ingressos que voce ira comprar"));
-//i2 - inputs salvos nas variaveis
-clienteCadastro.nome_completo = pergunta1;
-if(pergunta2 === "DO"){
-	clienteCadastro.tipo_de_jogo = "Nacional";
-}else if(pergunta2 === "IN"){
-	clienteCadastro.tipo_de_jogo = "Internacional";
-}else{
-	clienteCadastro.tipo_de_jogo = "nao escolhido";
+// constantes e loops
+const notaFiscal = {
+	moeda: ["R$","$"], // real, dollar
+	valor_do_ingresso_do: [[1320,880,550,220], //do sf
+						[660,440,330,170], //do	dt 
+						[1980,1320,880,330]], //do fi
+	valor_do_ingresso_in: [[320,80,50,20], //in sf [0][0]
+						[60,40,30,70], //in	dt [1][0]
+						[198,132,88,33]], //in fi [2][0]					
+	valor_total: function (custo, quantidade){custo * quantidade}
 };
-if(pergunta3 === "SF"){
-	clienteCadastro.etapa_do_jogo = "semi-final";
-}else if(pergunta3 === "DT"){
-	clienteCadastro.etapa_do_jogo = "decisao de terceiro lugar";
-}else if(pergunta3 === "FI"){
-	clienteCadastro.etapa_do_jogo = "final";
-}else{
-	clienteCadastro.etapa_do_jogo = "nao escolhido";
+const clienteCadastro = {
+	nomeCompleto(){
+		const user = prompt("Digite seu nome completo").toUpperCase();
+		return user;
+	},
+	tipoDeJogo(){
+		const publico = prompt("Digite IN para internacional ou DO para domestico").toUpperCase();
+		const tipo = [];
+		if(publico === "DO"){
+			tipo.push(notaFiscal.moeda[0],notaFiscal.valor_do_ingresso_do, "Nacional");
+			return tipo;
+		}else if(publico === "IN"){
+			tipo.push(notaFiscal.moeda[1],notaFiscal.valor_do_ingresso_in, "Internacional");
+			return tipo;
+		}else{
+			return "nao escolhido";
+		};	
+	}, 
+	etapaDoJogo(){
+		const indice = prompt("Digite SF indica semi-final; DT indica decisão de terceiro lugar; e FI indica final").toUpperCase();
+		const etapa = [];
+		if(indice === "SF"){
+			etapa.push(0,"semi-final");
+			return etapa;
+		}else if(indice === "DT"){
+			etapa.push(1,"decisao de terceiro lugar");
+			return etapa;
+		}else if(indice === "FI"){
+			etapa.push(2,"final");
+			return etapa;
+		}else{
+			return "nao escolhido";
+		};
+	}, 
+	categoria(){
+		const numero = Number(prompt("Digite um numero sendo um 1 ou 2 ou 3 ou 4"));
+		const subIndice = [];
+		if(numero > 0 && numero <= 4){
+			subIndice.push(numero,numero - 1); 
+			return subIndice;
+		}else{
+			return "valor de categoria nao reconhecido";
+		};
+	}, 
+	quantidadeDeIngressos(){	
+		const quantidade = Number(prompt("Digite um numero de quantidade de ingressos que voce ira comprar"))
+		return quantidade;
+	}
 };
-if(pergunta4 > 0 || pergunta4 <= 4){clienteCadastro.categoria = pergunta4;}else{clienteCadastro.categoria = "nao escolhido";};
-clienteCadastro.quantidade_de_ingressos = pergunta5;
-//deve imprimir tudo isso, junto com o valor de cada ingresso e o valor total que o usuário tem que pagar (ou seja, o valor unitário do ingresso multiplicado pela quantidade)
-/*
-console.log(`---Dados da compra--- 
-Nome do cliente:  ${} 
-Tipo do jogo:  ${} 
-Etapa do jogo:  ${} 
-Categoria:  ${} 
-Quantidade de Ingressos:  ${} ingressos 
----Valores--- 
-Valor do ingresso:  R$ ${}
-Valor total:  R$ ${}
-`);
-ou
----Dados da compra--- 
-Nome do cliente:  Soter Padua 
-Tipo do jogo:  Internacional 
-Etapa do jogo:  Final 
-Categoria:  1 
-Quantidade de Ingressos:  10 ingressos 
----Valores--- 
-Valor do ingresso:  U$ 482.92682926829275
-Valor total:  U$ 4829.2682926829275
-*/
-console.log(clienteCadastro.nome_completo);
-console.log(clienteCadastro.tipo_de_jogo);
-console.log(clienteCadastro.etapa_do_jogo);
-console.log(clienteCadastro.categoria);
-console.log(clienteCadastro.quantidade_de_ingressos);
+// main || executar programa
+const qa1 = clienteCadastro.nomeCompleto();
+const qa2 = clienteCadastro.tipoDeJogo(); //publico = tipo[notaFiscal.moeda[0],notaFiscal.valor_do_ingresso_do[], "Nacional"] => console.log(qa2[1]);
+const qa3 = clienteCadastro.etapaDoJogo(); //indice = etapa[0,"semi-final"] => console.log(qa3[0]); 
+const qa4 = clienteCadastro.categoria(); //numero = subindice[0]
+const qa5 = clienteCadastro.quantidadeDeIngressos();
+const indice = qa3[0];
+const arrays = qa2[1][indice];
+const numero2 = qa4[1];
+
+ 
+console.log(`
+			---Dados da compra--- 
+		Nome do cliente:  ${qa1} 
+		Tipo do jogo:  ${qa2[2]} 
+		Etapa do jogo:  ${qa3[1]} 
+		Categoria:  ${qa4[0]} 
+		Quantidade de Ingressos:  ${qa5} ingressos 
+			---Valores--- 
+		Valor do ingresso:  ${qa2[0]} ${arrays[numero2]}
+		Valor total:  ${qa2[0]} ${arrays[numero2] * qa5}
+		`);
