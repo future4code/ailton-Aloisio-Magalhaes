@@ -25,12 +25,16 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- //return array.filter(array % 2===0)**2;
+//	const newArr = array.map(myFunction);
+//	function myFunction(num) {if((num % 2) === 0) && !(null)){return num ** 2;};};
+// return newArr; 
 }
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
+  array.sort(function(a, b){return a-b});
+  let maior = array[array.length-1];
+  return maior;
 }
 
 // EXERCÍCIO 07
