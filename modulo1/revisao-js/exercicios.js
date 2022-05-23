@@ -25,8 +25,9 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-//array.filter(array % 2===0).map((indice)=>{return indice**2});
-//return array;
+let arr = array.filter((valor)=>{if(valor % 2 === 0){return valor;}});
+let arr1 = arr.map((valor)=>{return valor ** 2;});
+return arr1;
 }
 
 // EXERCÍCIO 06
@@ -88,7 +89,7 @@ function retornaPessoaAnonimizada(pessoa) {
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-   
+ let vip = pessoas.filter()
 }
 
 // EXERCÍCIO 13B
