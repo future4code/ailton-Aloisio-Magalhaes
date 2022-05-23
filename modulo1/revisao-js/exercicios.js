@@ -89,7 +89,8 @@ function retornaPessoaAnonimizada(pessoa) {
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
- let vip = pessoas.filter()
+ let vip = pessoas.filter((chave)=>{return chave.altura > 1.50 && chave.idade > 14 && chave.idade < 60;});
+ return vip; 
 }
 
 // EXERCÍCIO 13B
