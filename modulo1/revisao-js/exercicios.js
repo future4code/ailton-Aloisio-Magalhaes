@@ -25,7 +25,8 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-
+//array.filter(array % 2===0).map((indice)=>{return indice**2});
+//return array;
 }
 
 // EXERCÍCIO 06
@@ -80,8 +81,9 @@ return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${f
 }
 
 // EXERCÍCIO 12
-function retornaPessoaAnonimizada(pessoa) {
-   
+function retornaPessoaAnonimizada(pessoa) { 
+   pessoa.nome = "ANÔNIMO"; 
+   return pessoa;
 }
 
 // EXERCÍCIO 13A
@@ -96,7 +98,36 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
+let conta1, conta2, conta3, conta4, conta5, conta6;
+conta1 = contas[0];
+conta2 = contas[1];
+conta3 = contas[2];
+conta4 = contas[3];
+conta5 = contas[4];
+conta6 = contas[5];
 
+conta1.saldoTotal = conta1.saldoTotal - 600;
+conta2.saldoTotal = conta2.saldoTotal - 1240;
+conta3.saldoTotal = conta3.saldoTotal - 13340;
+conta4.saldoTotal = conta4.saldoTotal - 2000;
+conta5.saldoTotal = conta5.saldoTotal - 500;
+conta6.saldoTotal = conta6.saldoTotal - 0;
+
+conta1.compras = [];
+conta2.compras = [];
+conta3.compras = [];
+conta4.compras = [];
+conta5.compras = [];
+conta6.compras = [];
+
+let conta = [];
+conta.push(conta1);
+conta.push(conta2);
+conta.push(conta3);
+conta.push(conta4);
+conta.push(conta5);
+conta.push(conta6);
+return conta;
 }
 
 // EXERCÍCIO 15A
