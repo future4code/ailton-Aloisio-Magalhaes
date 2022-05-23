@@ -25,9 +25,7 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-//	const newArr = array.map(myFunction);
-//	function myFunction(num) {if((num % 2) === 0) && !(null)){return num ** 2;};};
-// return newArr; 
+
 }
 
 // EXERCÍCIO 06
@@ -68,7 +66,11 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
+  array.sort(function(a, b){return a-b});
+  let maior = array[array.length - 2];
+  let menor = array[1];
+  let arr = [maior, menor];
+  return arr;
 }
 
 // EXERCÍCIO 11
