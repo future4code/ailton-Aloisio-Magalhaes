@@ -95,7 +95,10 @@ function retornaPessoasAutorizadas(pessoas) {
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  
+let idades = pessoas.sort((valor)=>{valor.idade});
+let alturas = pessoas.sort((valor)=>{valor.altura});
+  let proibidos = pessoas.filter((chave)=>{if(14 > idades < 60 && 1.50 > alturas < 2.0){return chave;}});
+  return proibidos;
 }
 
 // EXERCÍCIO 14
