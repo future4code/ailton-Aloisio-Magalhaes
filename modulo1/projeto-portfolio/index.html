@@ -19,59 +19,51 @@
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"> 
 </head>
 <body>
-	<header>
-	HEADER
-	</header>
 
-	<nav>
-	<ul>
-		<li>
-		Educacao
-		<dl>
-			<dt>Universidade Estadual do Piaui - UESPI</dt>
-				<dd>Licenciatura Plena em Quimica</dd>
-			<dt>Grau Tecnico</dt>
-				<dd>Tecnico em Radiologia</dd>
-		</dl>
-		</li>
-	</ul>
-	</nav>
+<div class="container">
+  <header>
+     <h1>Aloisio Magalhaes</h1>
+  </header>
 
-	<main>
-	<p>Formacoes</p><br>
-	Um texto descrevendo quem é você. Uma foto sua é opcional.
-	<br>
-	Uma lista de instituições de ensino e empregadores prévios.<br>
-	Fica a critério do aluno quais instituições incluir nessa lista,<br>
-	pedimos que inclua pelo menos a Labenu.<br>
+  <nav role="navigation" aria-label="main navigation">
+	<a href="#habilidades">Habilidades</a><br>
+	<a href="#biografia">Biografia</a><br>
+	<a href="#portfolio">Portfolio</a><br>
+	<a href="#experiencias">Experiencias</a><br>
+	<a href="#formulario">Formulario</a>
+  </nav>
+	
+  <main>
+    <section class="habilidades">
+    	<picture>
+      	<a id="habilidades"><img src="./picture/icon/js.png" alt="js symbol"></img></a>
+    	</picture>
+	
+    </section>
 
-	Uma galeria de projetos de software que você trabalhou.<br>
-	Deve haver uma maneira de interagir com essa galeria de projetos<br>
-	e abrir uma página que você deve criar para cada projeto.<br>
-	<hr>
-	Uma página para cada projeto que você colocou no item anterior.<br>
-	Essa página deve ter (pelo menos) uma imagem do projeto, um título,<br>
-	uma descrição e uma lista de tecnologias utilizadas.<br>
-	Por enquanto você pode utilizar os projetos do curso como exemplo.<br>
-	<hr>
-	Uma lista de habilidades que você possui (técnicas e comportamentais).<br>
-	Para cada habilidade, coloque um breve texto descrevendo um ponto forte<br>
-	seu que justifique o destaque.<br>
-	<hr>
-	Um formulário para contato. Ele deve receber nome, email e texto.<br>
-	Nessa etapa o formulário não precisa mandar email ou interagir com o usuário.<br>
-	<hr>
-	Uma lista de redes sociais e links seus para contato.<br>
-	Sugerimos linkedin, github, email, twitter, facebook, etc.<br>
-	<hr>
-	Um menu na parte superior da tela com links para as demais áreas do portfólio.
-	<hr>
-
-	</main>
-
-	<footer id="footer">
-		<p>© 2022 Aloisio Magalhaes</p>
-	</footer>
+    <section class="biografia">
+	<picture>
+	<a id="biografia"><img src="./picture/icon/account.png" alt="photo user symbol"></img></a>
+	</picture>
+    </section>
+  </main>
+	
+  <footer>
+    <picture>
+     <a id="formulario"><img src="./picture/icon/email.png" alt="email symbol"></img></a>
+     <h3>Entre em contato</h3>	
+     </picture>
+	 <form  method="get" target="_blank">
+  		<label for="fname">Nome:</label>
+  		<input type="text" id="fname" name="fname"><br>
+  		<label for="lname">Email:</label>
+  		<input type="text" id="lname" name="lname"><br>
+		<label for="texto">Texto:</label>
+		<input type="text" id="texto" name="texto"></input>
+		<input type="submit" value="Enviar">
+	</form>  
+  </footer>
+</div>
 
 </body>
 </html>
