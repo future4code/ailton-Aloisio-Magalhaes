@@ -1,39 +1,44 @@
-import React from 'react';
+import React from 'react'
+import styled from 'styled-components'
 
-import {IconeComContador} from '../IconeComContador/IconeComContador';
+import {IconeComContador} from '../IconeComContador/IconeComContador'
 
-import iconeCoracaoBranco from '../../img/favorite-white.svg';
-import iconeCoracaoPreto from '../../img/favorite.svg';
-import iconeComentario from '../../img/comment_icon.svg';
-import {SecaoComentario} from '../SecaoComentario/SecaoComentario';
+import iconeCoracaoBranco from '../../img/favorite-white.svg'
+import iconeCoracaoPreto from '../../img/favorite.svg'
+import iconeComentario from '../../img/comment_icon.svg'
+import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 
-const PostContainer = {
-	border: '1px solid gray',
-	width: '300px',
-	margin_bottom: '10px'
-}
-const PostHeader = {
-	height: '40px',
-	display: 'flex',
-	align_items: 'center',
-	padding_left: '10px'
-}
-const PostFooter = {
-	height: '40px',
-	display: 'flex',
-	align_items: 'center',
-	paddig: '0 10px',
-	justify_content: 'space-between'
-}
-const UserPhoto = {
-	height: '30px',
-	width: '30px',
-	margin_right: '10px',
-	border_radius: '50%'
-}
-const PostPhoto = {
-	width: '100%'
-}
+const PostContainer = styled.div`
+  border: 1px solid gray;
+  width: 300px;
+  margin-bottom: 10px;
+`
+
+const PostHeader = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+`
+
+const PostFooter = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: space-between;
+`
+
+const UserPhoto = styled.img`
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+`
+
+const PostPhoto = styled.img`
+  width: 100%;
+`
 
 class Post extends React.Component {
   state = {
@@ -44,13 +49,15 @@ class Post extends React.Component {
   }
 
   onClickCurtida = () => {
-    var trocaImagem;
-    trocaImagem = this.state.curtido === false ? this.state.numeroCurtidas + 1 : this.state.numeroCurtidas - 1
-      this.setState({
-        curtido: !this.state.curtido,
-        numeroCurtidas: trocaImagem});
-
-          console.log('Curtiu!')
+	this.setState({
+		curtido: !this.state.curtido,
+	})
+	if(this.state.curtido){
+			this.setState({numeroCurtidas: this.state.numeroCurtidas - 1});
+	}else{
+			this.setState({numeroCurtidas: this.state.numeroCurtidas + 1});
+	}  
+    console.log('Curtiu!')
   }
 
   onClickComentario = () => {
@@ -68,20 +75,24 @@ class Post extends React.Component {
 
   render() {
     let iconeCurtida
-	iconeCurtida = this.state.curtido ? iconeCurtida = iconeCoracaoPreto : iconeCurtida = iconeCoracaoBranco
-    
+	if(this.state.curtido){
+		iconeCurtida = iconeCoracaoPreto;
+	}else{
+		iconeCurtida = iconeCoracaoBranco;
+		
+	}
+	
     let componenteComentario
-	componenteComentario = !this.state.comentando ? componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/> : console.log(this.aoEnviarComentario);
-
-    return <PostContainer style={PostContainer}>
-      <PostHeader style={PostHeader}>
-        <UserPhoto style={UserPhoto} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+	componenteComentario = this.state.comentando ? componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/> : componenteComentario = !this.state.comentando;
+    return <PostContainer>
+      <PostHeader>
+        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
       </PostHeader>
 
-      <PostPhoto style={PostPhoto} src={this.props.fotoPost} alt={'Imagem do post'}/>
+      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
 
-      <PostFooter style={PostFooter}>
+      <PostFooter>
         <IconeComContador
           icone={iconeCurtida}
           onClickIcone={this.onClickCurtida}
@@ -99,4 +110,4 @@ class Post extends React.Component {
   }
 }
 
-export default Post 
+export default Post

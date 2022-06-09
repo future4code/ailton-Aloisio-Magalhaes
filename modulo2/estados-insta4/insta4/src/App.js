@@ -1,33 +1,36 @@
 import React from 'react';
+import styled from 'styled-components'
 import Post from './components/Post/Post';
-/*
-const MainContainer = {
-	display: 'flex',
-	justify_content: 'center',
-	flex_direction: 'column',
-	align_items: 'center'
-}
-*/
+
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
+
 class App extends React.Component {
- render(){
-  return (
-	<div style={{display: 'flex', justify_content: 'center', flex_direction: 'column', align_items: 'center'}}>
-	 <Post
-	 	nomeUsuario={'paulinha'}
-	 	fotoUsuario={'https://picsum.photos/50/50'}
-	 	fotoPost={'https://picsum.photos/200/150'}
-	 // eslint-disable-next-line	
-	 />
-	 <Post
-	 	nomeUsuario={'joao'}
-	 	fotoUsuario={'https://picsum.photos/50/50'}
-	 	fotoPost={'https://picsum.photos/200/150'}
-	 // eslint-disable-next-line
-	 />
-	 
-	</div>
-  );
- }
+  render() {
+    return (
+      <MainContainer>
+        <Post
+          nomeUsuario={'paulinha'}
+          fotoUsuario={'https://picsum.photos/50/50'}
+          fotoPost={'https://picsum.photos/200/150'}
+        />
+        <Post
+          nomeUsuario={'joao'}
+          fotoUsuario={'https://picsum.photos/50/50'}
+          fotoPost={'https://picsum.photos/200/150'}
+        />
+        <Post
+          nomeUsuario={'maria'}
+          fotoUsuario={'https://picsum.photos/50/50'}
+          fotoPost={'https://picsum.photos/200/150'}
+        />
+      </MainContainer>
+    );
+  }
 }
 
 export default App;
