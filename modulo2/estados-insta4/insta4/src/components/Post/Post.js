@@ -7,7 +7,7 @@ import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
-
+/*
 const PostContainer = styled.div`
   border: 1px solid gray;
   width: 300px;
@@ -39,7 +39,7 @@ const UserPhoto = styled.img`
 const PostPhoto = styled.img`
   width: 100%;
 `
-
+*/
 class Post extends React.Component {
   state = {
     curtido: false,
