@@ -7,11 +7,33 @@ import iconeCoracaoPreto from '../../img/favorite.svg';
 import iconeComentario from '../../img/comment_icon.svg';
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario';
 
-import './PostContainer.css';
-import './PostHeader.css';
-import './PostFooter.css';
-import './UserPhoto.css';
-import './PostPhoto.css';
+const PostContainer = {
+	border: '1px solid gray',
+	width: '300px',
+	margin_bottom: '10px'
+}
+const PostHeader = {
+	height: '40px',
+	display: 'flex',
+	align_items: 'center',
+	padding_left: '10px'
+}
+const PostFooter = {
+	height: '40px',
+	display: 'flex',
+	align_items: 'center',
+	paddig: '0 10px',
+	justify_content: 'space-between'
+}
+const UserPhoto = {
+	height: '30px',
+	width: '30px',
+	margin_right: '10px',
+	border_radius: '50%'
+}
+const PostPhoto = {
+	width: '100%'
+}
 
 class Post extends React.Component {
   state = {
@@ -51,15 +73,15 @@ class Post extends React.Component {
     let componenteComentario
 	componenteComentario = !this.state.comentando ? componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/> : console.log(this.aoEnviarComentario);
 
-    return <PostContainer>
-      <PostHeader>
-        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+    return <PostContainer style={PostContainer}>
+      <PostHeader style={PostHeader}>
+        <UserPhoto style={UserPhoto} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
       </PostHeader>
 
-      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
+      <PostPhoto style={PostPhoto} src={this.props.fotoPost} alt={'Imagem do post'}/>
 
-      <PostFooter>
+      <PostFooter style={PostFooter}>
         <IconeComContador
           icone={iconeCurtida}
           onClickIcone={this.onClickCurtida}

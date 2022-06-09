@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
-import './CommentContainer.css';
-import './InputComentario.css';
+const CommentContainer = {
+	display: 'flex',
+	justify_content: 'center',
+	padding: '5px'
+}
+const InputComentario = {
+	width: '100%',
+	margin_right: '5px'
+}
 
 export class SecaoComentario extends Component {
 	state = {
