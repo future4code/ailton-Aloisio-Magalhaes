@@ -1,45 +1,18 @@
-import React from 'react'
-//import styled from 'styled-components'
+import React from 'react';
 
-import {IconeComContador} from '../IconeComContador/IconeComContador'
+import {IconeComContador} from '../IconeComContador/IconeComContador';
 
-import iconeCoracaoBranco from '../../img/favorite-white.svg'
-import iconeCoracaoPreto from '../../img/favorite.svg'
-import iconeComentario from '../../img/comment_icon.svg'
-import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
-/*
-const PostContainer = styled.div`
-  border: 1px solid gray;
-  width: 300px;
-  margin-bottom: 10px;
-`
+import iconeCoracaoBranco from '../../img/favorite-white.svg';
+import iconeCoracaoPreto from '../../img/favorite.svg';
+import iconeComentario from '../../img/comment_icon.svg';
+import {SecaoComentario} from '../SecaoComentario/SecaoComentario';
 
-const PostHeader = styled.div`
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-`
+import './PostContainer.css';
+import './PostHeader.css';
+import './PostFooter.css';
+import './UserPhoto.css';
+import './PostPhoto.css';
 
-const PostFooter = styled.div`
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  justify-content: space-between;
-`
-
-const UserPhoto = styled.img`
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
-  border-radius: 50%;
-`
-
-const PostPhoto = styled.img`
-  width: 100%;
-`
-*/
 class Post extends React.Component {
   state = {
     curtido: false,
@@ -55,7 +28,7 @@ class Post extends React.Component {
         curtido: !this.state.curtido,
         numeroCurtidas: trocaImagem});
 
-          //console.log('Curtiu!')
+          console.log('Curtiu!')
   }
 
   onClickComentario = () => {
@@ -73,18 +46,10 @@ class Post extends React.Component {
 
   render() {
     let iconeCurtida
-
-    if(this.state.curtido) {
-      iconeCurtida = iconeCoracaoPreto
-    } else {
-      iconeCurtida = iconeCoracaoBranco
-    }
-
+	iconeCurtida = this.state.curtido ? iconeCurtida = iconeCoracaoPreto : iconeCurtida = iconeCoracaoBranco
+    
     let componenteComentario
-
-    if(this.state.comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
-    }
+	componenteComentario = !this.state.comentando ? componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/> : console.log(this.aoEnviarComentario);
 
     return <PostContainer>
       <PostHeader>
