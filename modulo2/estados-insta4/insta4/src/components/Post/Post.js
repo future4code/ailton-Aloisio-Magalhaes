@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+//import styled from 'styled-components'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 
@@ -54,7 +54,7 @@ class Post extends React.Component {
       this.setState({
         curtido: !this.state.curtido,
         numeroCurtidas: trocaImagem});
-   
+
           //console.log('Curtiu!')
   }
 
@@ -112,4 +112,4 @@ class Post extends React.Component {
   }
 }
 
-export default Post
+export default Post 

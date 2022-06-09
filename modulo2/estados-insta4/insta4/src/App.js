@@ -1,17 +1,11 @@
-import React from 'react';
-import styled from 'styled-components'
+import logo from './logo.svg';
+//import './App.css';
+import MainContainer from '.components/MainContainer/MainContainer';
 import Post from './components/Post/Post';
 
-const MainContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`
-
-class App extends React.Component {
-  render() {
-    return (
+function App() {
+  return (
+    <div className="App">
       <MainContainer>
         <Post
           nomeUsuario={'paulinha'}
@@ -29,8 +23,8 @@ class App extends React.Component {
           fotoPost={'https://picsum.photos/200/152'}
         />
       </MainContainer>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
