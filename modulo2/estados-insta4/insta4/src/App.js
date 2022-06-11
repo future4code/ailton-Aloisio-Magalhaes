@@ -8,26 +8,23 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `
-
+const PostArray = [
+  {nomeUsuario: "paulinha", fotoUsuario: "https://picsum.photos/50/50",
+  fotoPost: "https://picsum.photos/200/150"},
+  {nomeUsuario: "paulo", fotoUsuario: "https://picsum.photos/50/50",
+  fotoPost: "https://picsum.photos/200/150"},
+  {nomeUsuario: "aninha", fotoUsuario: "https://picsum.photos/50/50",
+  fotoPost: "https://picsum.photos/200/150"}]; 	
+  
+  
 class App extends React.Component {
+  
   render() {
+var ListaDePost = PostArray.map((postagem)=>{return <div>{postagem}</div>});
+	  
     return (
       <MainContainer>
-        <Post
-          nomeUsuario={'paulinha'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
-        <Post
-          nomeUsuario={'joao'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
-        <Post
-          nomeUsuario={'maria'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
+       <div>{ListaDePost}</div>
       </MainContainer>
     );
   }
