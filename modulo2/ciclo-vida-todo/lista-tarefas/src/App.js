@@ -53,8 +53,9 @@ class App extends React.Component {
   criaTarefa = () => {
     console.log('add tarefa', this.state.inputValue)
     const novaTarefa = {id: Date.now(),
-                        texto: this.state.inputValue,
-                        completa: false}
+                        texto: this.state.inputValue ,
+                        completa: false}                    
+    
     const novaListaDeTarefas = [novaTarefa, ...this.state.tarefas]
     this.setState({tarefas: novaListaDeTarefas})
   }
@@ -64,7 +65,7 @@ class App extends React.Component {
     const novaListaDeTarefas = this.state.tarefas.filter((tarefa)=>{return tarefaId !== tarefa.id})
     this.setState({tarefas: novaListaDeTarefas})
   }
-  
+  /*
   editarTarefa = (tarefaId) => {
     //mudar o state.texto ja existente
     const novaListaDeTarefas = this.state.tarefas.map(
@@ -72,9 +73,12 @@ class App extends React.Component {
       })
       this.setState({tarefas: novaListaDeTarefas})
   }
-  
+  */
   selectTarefa = (tarefaId) => {
     //mudar o texto no state.completo ja existente
+    const novaListaDeTarefas = this.state.tarefas.map(
+      (tarefa)=>{return tarefa = (tarefa.id === tarefaId) ? (tarefa = {...tarefa, completa: !tarefa.completa}): (tarefa = {...tarefa, completa: tarefa.completa})})
+    this.setState({tarefas: novaListaDeTarefas})
   }
 
   onChangeFilter = (event) => {
