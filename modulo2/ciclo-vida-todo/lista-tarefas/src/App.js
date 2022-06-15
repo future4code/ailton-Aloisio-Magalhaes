@@ -28,12 +28,7 @@ const Tarefa = styled.li`
 
 class App extends React.Component {
     state = {
-      tarefas: [{id: Date.now(),
-                texto: 'Texto da primeira tarefa',
-                completa: false},
-               {id: Date.now(),
-                texto: 'Texto da segunda tarefa',
-                completa: true}],
+      tarefas: [],
       inputValue: '',
       filtro: 'nenhum'
     }
