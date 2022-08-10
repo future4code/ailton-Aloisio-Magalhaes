@@ -1,0 +1,19 @@
+{
+  "name": "aloisio-node-pagackage",
+  "version": "1.0.0",
+  "description": "contem os exercicios da aula sobre backend",
+  "main": "index.js",
+  "scripts": {
+  "start": "node index.js",
+    "lista": "node lista.js",
+    "calc": "node calc.js"
+  },
+  "keywords": [
+    "node",
+    "index.js",
+    "package",
+    "json"
+  ],
+  "author": "aloisio",
+  "license": "MIT"
+}
