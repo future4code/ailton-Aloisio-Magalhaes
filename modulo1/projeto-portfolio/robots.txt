@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://projeto-portfolio-aloisio.surge.sh/sitemap.xml
