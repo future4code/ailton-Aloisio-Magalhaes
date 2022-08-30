@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-export default async function createUser(req:Request, res:Response) {
+export default async function createTask(req:Request, res:Response) {
     try {
         //validar entraas da requisicao
         //consultar o banco de dados

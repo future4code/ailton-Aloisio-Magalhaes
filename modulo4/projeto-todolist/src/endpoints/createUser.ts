@@ -5,6 +5,7 @@ export default async function createUser(req:Request, res:Response) {
         //validar entraas da requisicao
         if(!req.body.nome || !req.body.nickname || !req.body.email){
             res.status(400).send('preencha os campos "nome", "nickname", "email"');
+            //return
         }
         //consultar o banco de dados knex.mysql
         const id:string = Date.now() + String(Math.random());

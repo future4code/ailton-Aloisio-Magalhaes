@@ -7,7 +7,8 @@ export default async function getUserById(req:Request, res:Response) {
         const user = await selectUserById(req.params.id);
         //validar saida do banco de dados
         if(!user){
-            res.status(404).send({message: "usuario nao encontrado"});    
+            res.status(404).send({message: "usuario nao encontrado"});   
+            //return 
         }
         //responder a requisicao 
         res.status(200).send({id:user.id, nickname:user.nickname});
