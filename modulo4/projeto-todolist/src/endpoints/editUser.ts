@@ -7,13 +7,13 @@ export default async function editUser(req:Request, res:Response) {
             res.status(400).send({
                 message: "Nenhum dos campos pode estar em branco"
             });
-            //return
+            return
         }
         if(!req.body.nome && !req.body.nickname && !req.body.email){
             res.status(400).send({
                 message: "escolha ao menos um valor para alterar"
             });
-            //return
+            return
         }
         //consultar o banco de dados
         await updateUser(req.params.id, req.body.nome, req.body.nickname, req.body.email);
