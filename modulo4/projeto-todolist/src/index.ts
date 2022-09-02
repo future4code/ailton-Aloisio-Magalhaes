@@ -5,6 +5,7 @@ import cors from "cors";
 import createUser from "./endpoints/createUser";
 import getUserById from "./endpoints/getUserById";
 import editUser from "./endpoints/editUser";
+import createTask from "./endpoints/createTask";
 
 dotenv.config();
 //conexao servidor backend
@@ -27,6 +28,7 @@ app.use(cors());
 app.put('/user', createUser);
 app.get('/user/:id', getUserById);
 app.post('/user/edit/:id', editUser);
+app.put('/task', createTask);
 //iniciando servidor
 app.listen(3003, () => {
     console.log("Server is running in http://localhost:3003");
