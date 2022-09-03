@@ -6,7 +6,7 @@ import createUser from "./endpoints/createUser";
 import getUserById from "./endpoints/getUserById";
 import editUser from "./endpoints/editUser";
 import createTask from "./endpoints/createTask";
-
+//========= Middlewares
 dotenv.config();
 //conexao servidor backend
 const connection: Knex<any, unknown[]> = knex({
@@ -25,7 +25,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 //endpoints cadastrados
+
+//----Cadastrar Usuario
 app.put('/user', createUser);
+//----Busca por todos os usuários
 app.get('/user/:id', getUserById);
 app.post('/user/edit/:id', editUser);
 app.put('/task', createTask);
